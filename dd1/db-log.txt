@@ -1,0 +1,6 @@
+Access denied for user ''@'localhost' (using password: NO) | February 22, 2023, 2:06 pm 
+Access denied for user ''@'localhost' (using password: YES) | February 22, 2023, 2:07 pm 
+Access denied for user ''@'localhost' (using password: YES) | February 22, 2023, 2:08 pm 
+Access denied for user ''@'localhost' (using password: YES) | February 22, 2023, 2:08 pm 
+Access denied for user ''@'localhost' (using password: YES) | February 22, 2023, 2:08 pm 
+Access denied for user ''@'localhost' (using password: NO) | February 22, 2023, 2:13 pm 
