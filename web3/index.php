@@ -1,37 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap" rel="stylesheet">
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<form >
+		
 
-<header>
-	
-<nav>
-	<div class="logo"> <h1 style="font-size: 20px;"> Mera bharat </h1> </div>
-	<div class="menu">
-		<a href="#" style=font: size 20px; >Home</a>
-		<a href="#">gallery</a>
-		<a href="https://www.youtube.com/channel/UCwfaAHy4zQUb2APNOGXUCCA" target="_blank">about</a>
-		<a href="#">contact</a>
-	</div>
-</nav>
+		<div class="grid">
+			<div>
+				<label>COUNTY *</label>
+				<input type="text" name="subject" id="subject" placeholder="Select county" >
+			</div>
 
-	<main>
-		<section>
-			<h3>Welcome To India</h3>
-			<h1>DO COME & VISIT <span class="change_content"> </span> <span style="margin-top: -10px;"> | </span> </h1>
-			<p>"India once is not enough"</p>
-			<a href="#" class="btnone">learn more</a>
-			<a href="#" class="btntwo">signup here</a>
-		</section>
-	</main>
+			<div>
+				<label>TOWN *</label>
+				<input type="text" name="topic" id="topic" placeholder="select town" >
+			</div>
 
+			<div>
+				<label><SUB-COUNTY></SUB-COUNTY> *</label>
+				<input type="text" name="chapter" id="chapter" placeholder="sub-county">
+			</div>
 
-</header>
+			<div>
+				<label>SERVICES *</label>
+				<input type="text" name="chapter" id="chapter"  placeholder="select service">
+			</div>
+		</div>	
 
+		<button type="submit" name="submit">Submit</button>		
+	</form>
 </body>
 </html>
