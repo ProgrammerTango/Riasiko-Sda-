@@ -1,0 +1,752 @@
+<?php
+   // include_once('config/admins.php');
+   // include_once('config/Underwriting.php');
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>::: Edit Dependants :::</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    <!-- The styles -->
+    <link id="bs-css" href="css/bootstrap-cerulean.min.css" rel="stylesheet">
+
+    <link href="css/charisma-app.css" rel="stylesheet">
+    <link href='bower_components/fullcalendar/dist/fullcalendar.css' rel='stylesheet'>
+    <link href='bower_components/fullcalendar/dist/fullcalendar.print.css' rel='stylesheet' media='print'>
+    <link href='bower_components/chosen/chosen.min.css' rel='stylesheet'>
+    <link href='bower_components/colorbox/example3/colorbox.css' rel='stylesheet'>
+    <link href='bower_components/responsive-tables/responsive-tables.css' rel='stylesheet'>
+    <link href='bower_components/bootstrap-tour/build/css/bootstrap-tour.min.css' rel='stylesheet'>
+    <link href='css/jquery.noty.css' rel='stylesheet'>
+    <link href='css/noty_theme_default.css' rel='stylesheet'>
+    <link href='css/elfinder.min.css' rel='stylesheet'>
+    <link href='css/elfinder.theme.css' rel='stylesheet'>
+    <link href='css/jquery.iphone.toggle.css' rel='stylesheet'>
+    <link href='css/uploadify.css' rel='stylesheet'>
+    <link href='css/animate.min.css' rel='stylesheet'>
+
+    <!-- jQuery -->
+    <script src="bower_components/jquery/jquery.min.js"></script>
+  <script type="text/javascript">
+		function confirm_delete(){
+		 return confirm("Are You sure to Remove the Room?");
+		}
+	</script> 
+    <!-- The HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- The fav icon -->
+    <link rel="shortcut icon" href="img/favicon.ico">
+<style>
+.button1 {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button2 {
+  background-color: #F4330C; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button3 {
+  background-color: #3EBCF3; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button4 {
+  background-color: #F3903E; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.button5 {
+  background-color: #3EF341; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+.button6 {
+  background-color: #F33E75; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.button8 {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 11px;
+}
+
+.button9 {
+  background-color: #F4330C; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 11px;
+}
+
+.button10 {
+  background-color: #F33E75; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 11px;
+}
+</style>
+</head>
+
+<body>
+    <!-- topbar starts -->
+    <?php
+		include_once('common/menu_top.php');
+	?>
+    <!-- topbar ends -->
+<div class="ch-container">
+    <div class="row">
+        
+        <!-- left menu starts -->
+        
+		<?php
+			include_once('common/menu_left.php');
+		?>
+		
+       <style>
+
+.search-result{
+border-bottom:solid 1px #BDC7D8;
+padding:5px;
+font-family:Times New Roman;
+font-size: 15px;
+color:blue; 
+}
+
+</style>
+
+<script>
+$(document).ready(function() {
+$('#search-data').unbind().keyup(function(e) {
+    var value = $(this).val();
+    if (value.length>3) {
+        //alert(99933);
+        searchData(value);
+    } else {     
+         $('#search-result-container').hide();
+    }        
+});
+});
+
+function searchData(val){
+    $('#search-result-container').show();
+    $('#search-result-container').html('<div><img src="loading.png" width="50px;" height="50px"> <span style="font-size: 20px;">Please Wait...</span></div>');
+    $.post('HCController',{'search-data': val}, function(data){
+                    
+        if(data != "")
+            $('#search-result-container').html(data);
+        else                
+        $('#search-result-container').html("");
+    }).fail(function(xhr, ajaxOptions, thrownError) { //any errors?
+                    
+    alert(thrownError); //alert with HTTP error
+                                    
+    });
+}
+
+$(document).on('click', '.search-result', function() {
+ 
+ var Doc= $(this).text();
+ var url='PatientDetails?Doc='+Doc+'';
+    window.open(url,'popUpWindow','height=800,width=800,left=100,top=100,resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,directories=no, status=yes')
+        
+});
+</script>
+
+<div class="ch-container">
+    <div class="row">
+        
+        <div id="content" class="col-lg-10 col-sm-10">
+            <!-- content starts -->
+            <?php 
+                $tscMembersID=mysqli_real_escape_string($dbc,stripslashes($_REQUEST['TeacherID']));
+                $DependantsID=mysqli_real_escape_string($dbc,stripslashes($_REQUEST['Dependant']));
+            ?>
+            <div class="row">
+                <div class="box col-md-12">
+                    <div class="box-inner">
+                        <div class="box-header well" data-original-title="">
+                            <h2><i class="glyphicon glyphicon-edit"></i> ADDING DEPENDANTS</h2>
+                                <!--<img src='optimal.png'>-->
+                            <div class="box-icon">
+                                
+                                <a href="#" class="btn btn-minimize btn-round btn-default"><i
+                                        class="glyphicon glyphicon-chevron-up"></i></a>
+                                
+                            </div>
+                            <br>
+                            <br>
+                    <?php
+                    if(isset($_POST['registers'])){
+                         $tscMembersID= $_SESSION['TeachersIDafterSave'];
+                         $DependantsID=$_SESSION['TeachersIDsafterSave'];
+                    }else{
+                        $tscMembersID=$tscMembersID;
+                        $DependantsID=$DependantsID;
+                    }
+                    ?>
+                            
+
+                            <div style="text-align: right">
+                              <a href="TeacherDetails?CaseID=<?php echo $tscMembersID;?>" class='button1'><i class="glyphicon glyphicon-eye-open"></i> View Profile</a>
+                              <a href="ViewActivities?TeacherID=<?php echo $tscMembersID;?>" class='button6'><i class="glyphicon glyphicon-eye-open"></i> View Activities</a>
+                            </div>
+               
+
+
+
+        <?php
+            require_once('config/connection.php');
+            require_once('common/directory.php');
+            require("Phpmailer/class.PHPMailer.php");
+            
+            @session_start();
+            
+            date_default_timezone_set("Africa/Nairobi");
+            $time_out=date('Y/m/d H:i:s');
+            $DateToday=date('Y/m/d');
+
+            $aonline = './Aon Line/HealthcareFilesUploads/';
+
+            $uploads_dir = $aonline;
+                    
+            if(isset($_POST['registers'])){
+
+                    $TSCNo=mysqli_real_escape_string($dbc,$_POST['TSCNo']);
+                    $FirstName=mysqli_real_escape_string($dbc,$_POST['FirstName']);
+                    $OtherNames=mysqli_real_escape_string($dbc,$_POST['OtherNames']);
+                    $Surname=mysqli_real_escape_string($dbc,$_POST['Surname']);
+                    $DependantType=mysqli_real_escape_string($dbc,$_POST['DependantType']);
+                    $DOB=mysqli_real_escape_string($dbc,$_POST['DOB']);
+                    $IdNo=mysqli_real_escape_string($dbc,$_POST['IdNo']);
+                    $Phone_No=mysqli_real_escape_string($dbc,$_POST['Phone_No']);
+                    $Disabled=mysqli_real_escape_string($dbc,$_POST['Disabled']);
+                    $Gender=mysqli_real_escape_string($dbc,$_POST['Gender']);
+                    $TeachersID=mysqli_real_escape_string($dbc,$_POST['TeachersID']);
+                    $TeachersG=mysqli_real_escape_string($dbc,$_POST['TeachersG']);
+                    $DependantID=mysqli_real_escape_string($dbc,$_POST['DependantID']);
+                    //$UniqueID=mysqli_real_escape_string($dbc,$_POST['UniqueID']);
+                    $ItemsChanged=nl2br($_POST['ItemsChanged']);
+					
+					$SelectUniqueID="SELECT concat(PrincipalMember,'-',DependantsID) as SyntaxID FROM tscdependants WHERE DependantsID='$DependantID'";
+					$queryUniqueID=@mysqli_query($dbc,$SelectUniqueID);
+					$rwsSeUniqueID=@mysqli_fetch_array($queryUniqueID,MYSQLI_ASSOC);
+					$UniqueID=@$rwsSeUniqueID['SyntaxID']; 
+					
+					$SelectUniquemEMBER="SELECT PhoneNo FROM tscmembers WHERE TSCNo='$TSCNo'";
+					$queryUniqueIDMember=@mysqli_query($dbc,$SelectUniquemEMBER);
+					$rwsSeUniqueIDMember=@mysqli_fetch_array($queryUniqueIDMember,MYSQLI_ASSOC);
+					$CellPhoneNo=@$rwsSeUniqueIDMember['PhoneNo']; 
+					                    
+                    $_SESSION['TeachersIDafterSave']=$TeachersID;
+                    $_SESSION['TeachersIDsafterSave']=$DependantID;
+
+                    $username=mysqli_real_escape_string($dbc,stripslashes($_SESSION['user']));
+                
+                    $Select="SELECT * FROM al_users WHERE email='$username'";
+                    $querysselect=@mysqli_query($dbc,$Select);
+                    $rwsSelect=@mysqli_fetch_array($querysselect,MYSQLI_ASSOC);
+                    $name=@$rwsSelect['f_name'];
+                    $UserNo=@$rwsSelect['user_no'];
+
+                    if($DependantType=='Son'){
+                      $GENDER='M';
+                    }else if($DependantType=='Daughter'){
+                      $GENDER='F';
+                    }elseif($DependantType=='Spouse' AND $TeachersG=='F'){
+                      $GENDER='M';
+                    }elseif($DependantType=='Spouse' AND $TeachersG=='M'){
+                      $GENDER='F';
+                    }
+					
+					$GENDER=$Gender;
+					
+					if(strtolower($DependantType)=='son'){
+						$DepenType='2';
+					}elseif(strtolower($DependantType)=='daughter'){
+						$DepenType='3';
+					}elseif(strtolower($DependantType)=='spouse'){
+						$DepenType='1';
+					}
+                    
+                    $Name= $FirstName.' '. $OtherNames.' '.$Surname;	
+					
+					$DepenName=$Surname.' '.$FirstName.' '.$OtherNames;
+					
+					$DepenDOBNot=$DOB;
+					$date = str_replace('/', '-', $DepenDOBNot);
+					$DepenDOBFre=date("Y-m-d",strtotime($date));
+					
+					$DepenDOB=date('d/m/Y',strtotime($date));
+					$DepenDOBdiff=date('Y/m/d',strtotime($date));					
+					
+					$DepenDisabled=strtolower($Disabled);
+					$DepenGender=$GENDER;
+					$DepenUniqueID=$UniqueID;
+					$DepenNationalID=$IdNo;			
+					
+                    $Action='Dependant Editing - '.$Name;
+										
+					$date1 = strtotime($DateToday);
+					$date2 = strtotime($DepenDOBdiff);
+
+					$time_difference = $date1 - $date2;
+
+					$seconds_per_year = 60*60*24*365;
+					$years = round($time_difference / $seconds_per_year);
+
+					$date_diff=$years;
+					
+					if($date_diff > 26 AND strtolower($DependantType) !='spouse' AND strtolower($Disabled) !='yes' ){
+						$Action='Dependant Editing (Suspending - '.$Name.')';
+						
+						$unique_id=$UniqueID;		
+						$reason='Overage';
+						$tscno=$TSCNo;
+						
+						$inserts_="INSERT INTO deactivateddependants(Dependant,Reason,DateAdded,AddedBy) 
+                            VALUE('$DependantID','Overage','$time_out','$Name')";
+						$querys_=@mysqli_query($dbc,$inserts_);
+						
+						$UpdateSuspend="UPDATE tscdependants SET Underwritten='suspended', Active='1', DateEdited='$time_out', EditedBy='$UserNo', DateUnderwriten='$time_out', UnderwrittenBy='$username' WHERE DependantsID='$DependantID'";
+						$querySuspend=@mysqli_query($dbc,$UpdateSuspend);
+						
+						if($querySuspend){
+							$inserts="INSERT INTO audit(user,action,date_time,UserActedon,actedonby) 
+								VALUE('$Name','$Action','$time_out','$TSCNo','$username')";
+							$querys=@mysqli_query($dbc,$inserts); 
+
+							$DependantID=$DependantID;
+							require_once('POST_MedEditDependant.php');
+							include('POST_SuspendDependant.php');
+							
+							$CellNo=$CellPhoneNo;
+                            $msg='Dear Member, '.strtoupper($Name).' has been suspended. Kindly visit https://npskps.com/nps_kps to see the reason for the suspension.';	
+							require('sms.php');
+							
+							header("Location:TeacherDetails?CaseID=$TeachersID");
+							echo "<div class='isa_success'> Request is Successful </div>"; 
+							
+						}else{
+							echo "<div class='isa_err'> There was an Error </div>";
+						}						
+					}else{				
+						$insert="UPDATE tscdependants SET Surname='$Surname', FirstName='$FirstName', LastName='$OtherNames', DOB='$DOB', CellPhone='$Phone_No',
+						Relationship='$DependantType', Gender='$GENDER',  Disabled='$Disabled', IdNo='$IdNo', TypeofChange='COD' , ItemsChanged='$ItemsChanged' WHERE DependantsID='$DependantID'";
+						$query=@mysqli_query($dbc,$insert);
+						
+						if($query){
+							$inserts="INSERT INTO audit(user,action,date_time,UserActedon,actedonby) 
+								VALUE('$name','$Action','$time_out','$TSCNo','$username')";
+							$querys=@mysqli_query($dbc,$inserts); 
+							
+							$DependantID=$DependantID;
+							require_once('POST_MedEditDependant.php');
+							require_once('POST_DependentChanges.php');							
+							
+							header("Location:TeacherDetails?CaseID=$TeachersID");
+							echo "<div class='isa_success'> Request is Successful </div>"; 
+							
+						}else{
+							echo "<div class='isa_err'> There was an Error </div>";
+						}
+					}
+            }
+            ?>
+                        </div>
+                        <br><br>
+                        <br><br>
+                        <?php
+                        $SelectsData="SELECT * FROM tscmembers WHERE tscMembersID='$tscMembersID'";
+                        $querysselectsData=@mysqli_query($dbc,$SelectsData);
+                        $rwsSelectsData=@mysqli_fetch_array($querysselectsData,MYSQLI_ASSOC);
+                        $TSCNo=@$rwsSelectsData['TSCNo'];
+                        $TecherGender=@$rwsSelectsData['Gender'];
+
+                        $SelectsDataDepend="SELECT * FROM tscdependants WHERE DependantsID='$DependantsID'";
+                        $querysselectsDataDepend=@mysqli_query($dbc,$SelectsDataDepend);
+                        $rwsSelectsDataDepend=@mysqli_fetch_array($querysselectsDataDepend,MYSQLI_ASSOC);
+						$UniqueIDs =$rwsSelectsDataDepend['SyntaxID'];                      
+
+                        ?>
+                    <div class="box-header well" data-original-title="">
+                            <h2><i class="glyphicon glyphicon-edit"></i> Editing Dependant - <?php echo $rwsSelectsData['FirstName']. ' '.$rwsSelectsData['OtherNames'] . ' '.$rwsSelectsData['Surname']; ?> </h2>
+                          </div>
+                        <div class="box-content">
+                            <div id="search-result-container" style="border:solid 1px #BDC7D8;display:none; "></div>
+                            <form role="form" method="POST" action="EditDependant" enctype="multipart/form-data">
+                                    
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="InputEmail1">FIRST NAME <font color='red'>*</font></label>
+											<input type='Text' name="FirstName" class="form-control" placeholder="FIRST NAME" value='<?php echo $rwsSelectsDataDepend['FirstName']; ?>'Required>
+										</div>                                  
+									</div>                                  
+									
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="InputEmail1">MIDDLE NAME </label>
+											<input type='Text' name="OtherNames" class="form-control"  placeholder="MIDDLE NAME" value='<?php echo $rwsSelectsDataDepend['LastName']; ?>'>
+										</div>
+									</div>
+									<div class="col-md-4">
+										<div class="form-group">
+											<label for="InputEmail1">LAST NAME <font color='red'>*</font></label>
+											<input type='Text' name="Surname" class="form-control"  placeholder="LAST NAME" value='<?php echo $rwsSelectsDataDepend['Surname']; ?>'  Required>
+										</div>
+									</div>                                 
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="InputEmail1">DEPENDANT TYPE <font color='red'>*</font> </label>
+                                            <input list="DependantsType" value='<?php echo $rwsSelectsDataDepend['Relationship']; ?>' id="DependantType" class="form-control" onChange="changetextbox();" name="DependantType" Required/>
+                                              <datalist id="DependantsType">
+                                                <option value="Spouse" >
+                                                <option value="Son" >
+                                                <option value="Daughter" >
+                                              </datalist> 
+                                        </div>
+                                    </div>
+									<?php
+									$DepenDOBNot=$rwsSelectsDataDepend['DOB'];
+									$date = str_replace('/', '-', $DepenDOBNot);
+									$DepenDOBFre=date("Y-m-d",strtotime($date));
+									
+									?>       
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="InputEmail1">DATE OF BIRTH <font color='red'>*</font></label>
+                                            <input type='date' name="date of birth" class="form-control" onchange="_setAge();" id="DOB" placeholder="DATE OF BIRTH" value='<?php echo $DepenDOBFre; ?>' Required>
+                                           
+                                           </div>
+                                           </div>
+                                           
+                                           
+                                            <div class="col-md-4">
+                                        <div class="form-group">
+
+                                            <label for="InputEmail1">Birth Certificate <font color='red'>*</font></label>
+                                            <input type='file' id ='birthNo' name="FileToUpload" class="form-control" min="0" step="0.01" id="FileToUpload" placeholder="Birth Certificate" value='<?php echo $rwsSelectsDataDepend['birthNo']; ?>' required>                                      
+                                          </div>
+                                           </div>
+
+
+                                           <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="InputEmail1">Proof of School <font color='red'>*</font></label>
+                                            <input type='file' id ='PoS' name="FileToUpload" class="form-control" min="0" step="0.01" id="PoS" placeholder="Proof of School" value='<?php echo $rwsSelectsDataDepend['PoS']; ?>' required>                                      
+                                          </div>
+                                           </div>
+
+                                           <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="InputEmail1">Disability Card <font color='red'>*</font></label>
+                                            <input type='file' id ='DCard' name="FileToUpload" class="form-control" min="0" step="0.01" id="DCard" placeholder="Disability Card" value='<?php echo $rwsSelectsDataDepend['DCard']; ?>' required>                                      
+                                          </div>
+                                           </div>
+
+  
+                                           <div class="col-md-4">                                         
+                                              <form action="upload.php" method="post" enctype="multipart/form-data">                                                                                   
+                                        <div class="form-group">
+                                            <label for="InputEmail1">NATIONAL ID NO <font color='red'>*</font></label>
+                                            <input type='file' id= 'IDNO' name="fileToUpload" class="form-control" min="0" step="0.01" id="IDNO" placeholder="NATIONAL ID NO" value='<?php echo $rwsSelectsDataDepend['fileToUpload']; ?>' Required>                                      
+                                          </form>
+                                          </div>
+
+                                          <div class="col-md-8">                                         
+                                              <form action="upload.php" method="post" enctype="multipart/form-data">                                                                                   
+                                        <div class="form-group">
+                                            <label for="InputEmail1">MARRIAGE CERTIFICATE <font color='red'>*</font></label>
+                                            <input type='file' id= 'Mcertificate' name="fileToUpload" class="form-control" min="0" step="0.01" id="IDNO" placeholder="MARRIAGE CERTIFICATE" value='<?php echo $rwsSelectsDataDepend['fileToUpload']; ?>' Required>                                      
+                                          </form>
+                                          </div>
+                                    </div>  
+                                          <div class="col-md-8">
+                                        <div class="form-group">
+                                          <div style="position:relative;  left:80px; top:2px; background-color:yellow;"></div>
+                                            <label for="InputEmail1">NPS/KPS Number <font color='red'>*</font></label>
+                                            <input type='number' name="" class="form-control" id="" value='<?php echo $PrincipalMember;?>' placeholder="Provide your NPS/KPS Number" required>
+                                        </div>
+                                        </div>
+                                    
+                                    <div class="col-md-8">                            
+									                  <div class="col-md-8">
+                                        <div class="form-group">
+                                            <label for="InputEmail1">PHONE NO <font color='red'>*</font></label>
+                                            <input type='number' name="Phone_No" class="form-control" min="0" step="0.01" id="Phone_No" placeholder="PHONE NO" value='<?php echo $rwsSelectsDataDepend['CellPhone']; ?>' Required>                                      
+                                        </div>
+                                    </div>
+                                    <div class="col-md-16">  
+                                        <div class="form-group">
+                                            <label for="InputEmail1">DISABLED <font color='red'>*</font></label>
+                                            <input list="Disableds" id="Disabled" value='<?php echo $rwsSelectsDataDepend['Disabled']; ?>' class="form-control" onChange="disable();" name="Disabled" Required/>
+                                              <datalist id="Disableds">
+                                                <option value="Yes" >
+                                                <option value="No" >
+                                              </datalist> 
+                                        </div>
+                                    </div> 
+
+                                    <div class="col-md-4">  
+                                        <div class="form-group">
+                                            <label for="InputEmail1">GENDER <font color='red'>*</font></label>
+                                            <input list="genders" id="Gender" value='<?php echo $rwsSelectsDataDepend['Gender']; ?>' class="form-control" name="Gender" Required/>
+                                              <datalist id="genders">
+                                                <option value="M" >
+                                                <option value="F" >
+                                              </datalist> 
+                                        </div>
+                                    </div>
+
+
+                                    
+
+                                    <div class="col-md-4">
+                                     <div class="form-group">
+                                        <label for="InputEmail1"> List all Items Changed <font color='red'>*</font></label>
+                                        <textarea name="ItemsChanged" class="form-control" id="" required> </textarea>
+                                      </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type='hidden' name='registers' value='TRUE'>
+                                        <input type='hidden' name='TeachersID' value='<?php echo $tscMembersID;?>'>
+                                        <input type='hidden' name='TeachersG' value='<?php echo $TecherGender;?>'>
+                                        <input type='hidden' name='DependantID' value='<?php echo $DependantsID;?>'>
+                                        <input type='hidden' name='UniqueID' value='<?php echo $UniqueIDs;?>'>
+                                        <input type='hidden' name='TSCNo' value='<?php echo $TSCNo;?>'>
+                                        <button type="submit" class="btn btn-default isa_success form-control">SAVE</button>
+                                    </div>
+                                    
+                                    <br>
+                                  
+           </form>
+                                                               
+							  
+                                   
+                                                               
+                                </div>
+
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <!--/span-->
+
+            </div><!--/row-->
+
+    <!-- content ends -->
+    </div><!--/#content.col-md-0-->
+
+</div><!--/fluid-row-->
+
+</div><!--/.fluid-container-->
+
+
+
+
+                                    
+<script type="text/javascript">
+function changetextbox()
+{
+    if (document.getElementById("DependantType").value === "Son" ,"Daughter") {
+        document.getElementById("PoS").disabled='true';
+        document.getElementById("birthNo").disabled='true';
+        document.getElementById("DCard").disabled='true';
+        document.getElementById("IDNO").disabled='true';
+
+
+    } else {
+        document.getElementById("birthNo").disabled='false';
+    }
+}
+</script>
+
+
+
+
+
+<script type="text/javascript">
+function changetextbox()
+{
+    if (document.getElementById("DependantType").value === "Spouse") {
+        document.getElementById("PoS").disabled='true';
+        document.getElementById("birthNo").disabled='true';
+        document.getElementById("DCard").disabled='true';
+        
+        
+
+       
+    } else {
+        document.getElementById("IDNO").disabled='false';
+        document.getElementById("Mcertificate").disabled='false';
+    }
+}      
+</script>
+
+
+
+
+<script type="text/javascript">
+function disable()
+{
+    if (document.getElementById("Disabled").value === "Yes") {
+        document.getElementById("birthNo").disabled='false';
+        document.getElementById("DCard").disabled='false';
+
+       
+    } else {
+        document.getElementById("IDNO").disabled='true';
+    }
+}      
+</script>
+
+
+
+
+
+<script type="text/javascript">           
+                                                          
+     console.log('javascript');
+                  var minAge=21;
+                  
+        function _calcAge() {
+            var date = new Date(document.getElementById("DOB").value);
+            var today = new Date();
+
+            var timeDiff = Math.abs(today.getTime() - date.getTime());
+            var age1 = Math.ceil(timeDiff / (1000 * 3600 * 24)) / 365;
+            return age1;
+        }
+        function _setAge() {
+            var DependantType = document.getElementById("DependantType").value;
+console.log(DependantType);
+            if(DependantType =='Spouse'){
+
+            }else{
+            var age = _calcAge();
+            console.log(age);
+            if (age > minAge) {
+                    document.getElementById('PoS').disabled= false;
+                    document.getElementById('birthNo').disabled = false;
+                    document.getElementById("DCard").disabled='true';
+                    console.log('tesr');
+            
+            } else{
+              document.getElementById('PoS').disabled= true;
+              document.getElementById('birthNo').disabled = false;
+            }
+          }
+        }
+ 
+
+    </script>
+
+</body>
+</html>
+		
+</div><!--/fluid-row-->
+
+    <hr>
+
+
+		<?php
+			include_once('common/footer.php');
+		?>
+
+</div><!--/.fluid-container-->
+
+<!-- external javascript -->
+
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<!-- library for cookie management -->
+<script src="js/jquery.cookie.js"></script>
+<!-- calender plugin -->
+<script src='bower_components/moment/min/moment.min.js'></script>
+<script src='bower_components/fullcalendar/dist/fullcalendar.min.js'></script>
+<!-- data table plugin -->
+<script src='js/jquery.dataTables.min.js'></script>
+
+<!-- select or dropdown enhancer -->
+<script src="bower_components/chosen/chosen.jquery.min.js"></script>
+<!-- plugin for gallery image view -->
+<script src="bower_components/colorbox/jquery.colorbox-min.js"></script>
+<!-- notification plugin -->
+<script src="js/jquery.noty.js"></script>
+<!-- library for making tables responsive -->
+<script src="bower_components/responsive-tables/responsive-tables.js"></script>
+<!-- tour plugin -->
+<script src="bower_components/bootstrap-tour/build/js/bootstrap-tour.min.js"></script>
+<!-- star rating plugin -->
+<script src="js/jquery.raty.min.js"></script>
+<!-- for iOS style toggle switch -->
+<script src="js/jquery.iphone.toggle.js"></script>
+<!-- autogrowing textarea plugin -->
+<script src="js/jquery.autogrow-textarea.js"></script>
+<!-- multiple file upload plugin -->
+<script src="js/jquery.uploadify-3.1.min.js"></script>
+<!-- history.js for cross-browser state change on ajax -->
+<script src="js/jquery.history.js"></script>
+<!-- application script for Charisma demo -->
+<script src="js/charisma.js"></script>
+
+
+</body>
+</html>
