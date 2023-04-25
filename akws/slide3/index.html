@@ -1,38 +1,372 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
-	<link rel="stylesheet" href="style.css">
-	<script src="script.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <title>Bizna</title>
+    <link rel="stylesheet" href="biznaSure Files\style.css">
+    <link rel="stylesheet" href="biznaSure Files\style5.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,700;0,800;1,300;1,900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jssor-slider/27.1.0/jssor.slider.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans%3A400%2C400italic%2C600%2C700%2C700italic%7COswald%3A400%2C300%7CVollkorn%3A400%2C400italic'><link rel="stylesheet" href="./style.css">
 </head>
 <body>
-	<div id="feedback-main">
-		<div id="feedback-div">
-		  <form action="contact.php" method="post" class="form" id="feedback-form1" name="form1" enctype="multipart/form-data">
-	  
-			<p class="name">
-			  <input name="name" type="name" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input" required placeholder="Name" id="feedback-name" />
-			</p>
-	  
-			<p class="email">
-			  <input name="email" type="email" class="validate[required,custom[email]] feedback-input" id="feedback-email" placeholder="Email" required />
-			</p>
-	  
-			<p class="text">
-			  <textarea name="comment" type="comment" class="validate[required,length[6,300]] feedback-input" id="feedback-comment" required placeholder="Hey, I really love the site but I believe that you could incorporate some ..... and also get rid of the ...... on the section."></textarea>
-			</p>
-	  
-			<div class="feedback-submit">
-			  <input type="submit" value="SEND" id="feedback-button-blue" />
-			  <div class="feedback-ease"></div>
-			</div>
-		  </form>
-		</div>
-	  </div>
-	  
-	  <button id="popup" class="feedback-button" onclick="toggle_visibility()">Feedback</button>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+      </head>
+      
+      <div class="site-container">
+        <div class="site-pusher">
+          
+          <header class="header">
+            
+            <div  class="header__icon" id="header__icon">
+              <span></span>
+              <span></span>
+              <span></span>
+             </div>
+            
+             <a href=" https://www.minet.com/kenya/" class="logo1"><img src="biznaSure Files\imgs\q1.png" alt=""></a>
+            
+            <nav class="menu">
+              <a href="#" style="margin-left: -140%;">Home</a>
+              <a href="#whybiz">About</a>
+              <a href="#biznasure-row">Products & Services </a>
+              <a href="#footer">Media</a>
+              <a href="#footer">Contacts</a>
+            </nav>
+            
+          </header>
+      
+          <div class="site-content">
+            <div class="container">
+              
+              <section class="body">
+                <header>
+                    <div class="logo">
+                      <link rel="stylesheet" href="style.css">
+                    </div>
+                    <div class="getaquote"> 
+                      <img src="biznaSure Files\imgs\img2.png" >
+                      <div class="g1">
+                        <h1>Tailored Cover for SME's</h1>
+                        <p>Adaptable to meet the demands of a dynamic <br> business environment</p>
+                      </div>
+                          </div> 
+                          <div class="data-container">
+                            <a href="https://forms.office.com/pages/responsepage.aspx?id=8PapkynoXkSi5UvVTKNRNPCsYyBe4YdMu8185XkaoNBUMkVNOU1UVkFaNFY0UlZHSTBHSk4yN0NCWi4u" 
+                            class="btn">Get a Quote </a>
+                        </div>
+                 </header>			
+              </section>
+             <section class="inquiries">
+          
+             </section> 
+            
+          
+          <div class="quotes1">
+            <a href="https://wa.link/nniggf"><i class="fa-duotone fa fa-comments"></i></a>
+            <a href="https://wa.link/nniggf" class="chat" >Chat with us</a>
+          </div>
+          
+          
+          <section class="biznacontact">
+          
+            <div class="row">
+              <img src="biznaSure Files\imgs\img.png" >
+              <h1 style="color: red; padding-top: 20px;">BiznaSure SME's Solutions</h1>
+              <h2 style="font-size: 4vw;"> For inquiries write to<br>retailsales@minet.co.ke Call 0719 044 555</h2>
+              <p > <br><br> For inquiries write to<br>retailsales@minet.co.ke Call<br> 0719 044 555   </p>
+            </div>
+          </section>
+          <section class="whybiz" id="whybiz">
+            <div class="row">
+                <div class="whybiz-col">
+                  <img src="biznaSure Files\imgs\img3.png" alt="">
+                </div>
+                <div class="whybiz-col">
+                    <div>
+                      <h1 style="  font-family: 'prelo slab';
+                      font-style: book;">Why BiznaSure SME's Solutions?</h1>
+              <h4 style=" font-style: prelo slab;">BiznaSure Insurance protects your business against a broad spectrum of risks.</h4>
+                      <p>Business Package Insurance is an effective insurance solution covering your business for financial, legal and reputational damage. The flexible insurance package has multiple cover options, providing cost-effective insurance for your business.</p>
+                   
+                    </div>
+                </div>
+            </div>
+          
+          </section >
+             <section class="biznasure"  id="biznasure-row">
+              <h2 id="options">COVER OPTIONS</h2>
+              </div>
+                  <div class="row" id="biznasure-row">
+                      <div class="biznasure-row" > 
+                          <img src="biznaSure Files\imgs\property.png" >
+                          <h3>Property</h3>
+                          <p>Damage or loss to your property at the business location.</p>
+                        <a href="https://forms.office.com/pages/responsepage.aspx?id=8PapkynoXkSi5UvVTKNRNPCsYyBe4YdMu8185XkaoNBUMkVNOU1UVkFaNFY0UlZHSTBHSk4yN0NCWi4u" class="my-button1">Get a Quote</a>
+                          </div>
+                          <div class="biznasure-row">
+                            <img src="biznaSure Files\imgs\employeedishonesty.png" >
+                            <h3>Employee Dishonesty</h3>
+                            <p>Loss of property due to employee  fraud.</p> <br> 
+                            <a href="https://forms.office.com/pages/responsepage.aspx?id=8PapkynoXkSi5UvVTKNRNPCsYyBe4YdMu8185XkaoNBUMkVNOU1UVkFaNFY0UlZHSTBHSk4yN0NCWi4u" class="my-button1">Get a Quote</a>
+                          </div>
+          
+                      <div class="biznasure-row">
+                          <img src="biznaSure Files\imgs\glass.png" >
+                          <h3>Glass & Signages </h3>
+                          <p>Breakage of internal and external glass and signs.</p> <br>
+                          <a href="https://forms.office.com/pages/responsepage.aspx?id=8PapkynoXkSi5UvVTKNRNPCsYyBe4YdMu8185XkaoNBUMkVNOU1UVkFaNFY0UlZHSTBHSk4yN0NCWi4u" class="my-button1">Get a Quote</a>
+                      </div>
+                      <div class="biznasure-row">
+                        <img src="biznaSure Files\imgs\theft.png" >
+                        <h3>Theft</h3>
+                        <p>Theft of stock, materials and general  contents.</p> <br>
+                        <a href="https://forms.office.com/pages/responsepage.aspx?id=8PapkynoXkSi5UvVTKNRNPCsYyBe4YdMu8185XkaoNBUMkVNOU1UVkFaNFY0UlZHSTBHSk4yN0NCWi4u" class="my-button1">Get a Quote</a>
+                      </div>
+                    </div>
+                    <hr>
+          
+                    <span id="dots"></span><span id="more"> 
+                      <div class="row" style="margin-top: 20px;">
+                        <div class="biznasure-row">
+                          <img src="biznaSure Files\imgs\glass.png" >
+                          <h3 style="line-height: 3.5px;">All Risks </h3>
+                          <p style="margin-top: 3%;">Widest cover for portable <br> items such as tools, equipment and electronic devices.</p> <br>
+                          <a href="https://forms.office.com/pages/responsepage.aspx?id=8PapkynoXkSi5UvVTKNRNPCsYyBe4YdMu8185XkaoNBUMkVNOU1UVkFaNFY0UlZHSTBHSk4yN0NCWi4u" class="my-button1">Get a Quote</a>
+                        </div>
+          
+                        <div class="biznasure-row">
+                          <img src="biznaSure Files\imgs\money.png" >
+                          <h3>Money</h3>
+                          <p>Theft or loss of Damage and money.</p> <br>
+                          <a href="https://forms.office.com/pages/responsepage.aspx?id=8PapkynoXkSi5UvVTKNRNPCsYyBe4YdMu8185XkaoNBUMkVNOU1UVkFaNFY0UlZHSTBHSk4yN0NCWi4u" class="my-button1">Get a Quote</a>
+                        </div>
+                        
+                      <div class="biznasure-row">
+                          <img src="biznaSure Files\imgs\machinery.png" >
+                          <h3>Machinery Breakdown</h3>
+                          <p>Damage to plant and machinery caused by  breakdown.</p> <br>
+                          <a href="https://forms.office.com/pages/responsepage.aspx?id=8PapkynoXkSi5UvVTKNRNPCsYyBe4YdMu8185XkaoNBUMkVNOU1UVkFaNFY0UlZHSTBHSk4yN0NCWi4u" class="my-button1">Get a Quote</a>
+                        </div>
+                    
+                      <div class="biznasure-row">
+                          <img src="biznaSure Files\imgs\trans.png" >
+                          <h3>Transits </h3>
+                          <p>Damage or loss of  goods while on   Transit</p> <br>
+                          <a href="https://forms.office.com/pages/responsepage.aspx?id=8PapkynoXkSi5UvVTKNRNPCsYyBe4YdMu8185XkaoNBUMkVNOU1UVkFaNFY0UlZHSTBHSk4yN0NCWi4u" class="my-button1">Get a Quote</a>
+                        </div>
+                    </div>
+                    <hr>
+                      <div class="row">
+                    <div class="biznasure-row"  style="margin-top: 2%;">
+                        <img src="biznaSure Files\imgs\liability.png" >
+                        <h3>Liability</h3>
+                        <p>Legal liability to Legal liability to pay compensation for third party property damage or personal injury.</p> 
+                        <a href="https://forms.office.com/pages/responsepage.aspx?id=8PapkynoXkSi5UvVTKNRNPCsYyBe4YdMu8185XkaoNBUMkVNOU1UVkFaNFY0UlZHSTBHSk4yN0NCWi4u" class="my-button1">Get a Quote</a>
+                      </div>
+                      <div class="biznasure-row">
+                        <img src="biznaSure Files\imgs\cyber.png" >
+                        <h3 style="margin-top: 10%;">Cyber-Liability</h3>
+                        <p>covers financial losses that result from data breaches and other cyber events.</p>
+                        <a href="https://forms.office.com/pages/responsepage.aspx?id=8PapkynoXkSi5UvVTKNRNPCsYyBe4YdMu8185XkaoNBUMkVNOU1UVkFaNFY0UlZHSTBHSk4yN0NCWi4u" class="my-button1">Get a Quote</a>
+                      </div>
+                      <div class="biznasure-row">
+                        <img src="biznaSure Files\imgs\workmen.png" >
+                        <h3 style="margin-top: 10%;">Workmen Compensation </h3>
+                        <p>Covers accidental death or injury to employees whilst in course of duty.</p> 
+                        <a href="https://forms.office.com/pages/responsepage.aspx?id=8PapkynoXkSi5UvVTKNRNPCsYyBe4YdMu8185XkaoNBUMkVNOU1UVkFaNFY0UlZHSTBHSk4yN0NCWi4u" class="my-button1">Get a Quote</a>
+                      </div>
+                    <div class="biznasure-row">
+                        <img src="biznaSure Files\imgs\deterio.png" >
+                        <h3>Deterioration of Stock</h3>
+                        <p>cover for goods lost or damaged due to failure of cold storage/refrigeration equipment.</p>
+                        <a href="https://forms.office.com/pages/responsepage.aspx?id=8PapkynoXkSi5UvVTKNRNPCsYyBe4YdMu8185XkaoNBUMkVNOU1UVkFaNFY0UlZHSTBHSk4yN0NCWi4u" class="my-button1">Get a Quote</a>
+                      </div>
+                </div>
+              <div class="row">
+          
+          
+            </div>
+            <hr>
+            <div class="row">
+              <div class="biznasure-row"  style="margin-top: 2%;">
+                <img src="biznaSure Files\imgs\direct.png" >
+                <h3>Director’s & Officers </h3>
+                <p style="line-height: 32px;">cover for the personal liability of Directors and Officers arising due to wrongful acts in their managerial</p> <br>
+                <a href="https://forms.office.com/pages/responsepage.aspx?id=8PapkynoXkSi5UvVTKNRNPCsYyBe4YdMu8185XkaoNBUMkVNOU1UVkFaNFY0UlZHSTBHSk4yN0NCWi4u" class="my-button1">Get a Quote</a>
+                </div>
+                <div class="biznasure-row">
+                  <img src="biznaSure Files\imgs\computer.png" >
+                  <h3>Computer and Electronic </h3>
+                  <p style="line-height: 32px;">Damage and breakdown to computer systems and  electronic equipment including cover for business interruption.</p> <br>
+                  <a href="https://forms.office.com/pages/responsepage.aspx?id=8PapkynoXkSi5UvVTKNRNPCsYyBe4YdMu8185XkaoNBUMkVNOU1UVkFaNFY0UlZHSTBHSk4yN0NCWi4u" class="my-button1">Get a Quote</a>
+                </div>
+                <div class="biznasure-row">
+                  <img src="biznaSure Files\imgs\businessiner.png" >
+                  <h3>Business Interruption</h3>
+                  <p>Loss of income and other additional costs caused by the interruption to your business following an insured loss under the Property section.</p>
+                  <a href="https://forms.office.com/pages/responsepage.aspx?id=8PapkynoXkSi5UvVTKNRNPCsYyBe4YdMu8185XkaoNBUMkVNOU1UVkFaNFY0UlZHSTBHSk4yN0NCWi4u" class="my-button1">Get a Quote</a>
+                </div>
+                <div class="biznasure-row">
+                  <img src="biznaSure Files\imgs\political.png" >
+                  <h3>Political violence </h3>
+                  <p>Cover for loss or damage to property and loss of business arising from political violence,insurrection, mutiny,war and terrorism.</p>
+                  <a href="https://forms.office.com/pages/responsepage.aspx?id=8PapkynoXkSi5UvVTKNRNPCsYyBe4YdMu8185XkaoNBUMkVNOU1UVkFaNFY0UlZHSTBHSk4yN0NCWi4u" class="my-button1">Get a Quote</a>
+                </div>
+            </div>
+            <hr>
+          </span></p>
+          <button onclick="myFunction()" id="myBtn" class="class-btn">Load More</button>
+          <div class="rowb">
+            <div class="bizna">
+              <img src="biznaSure Files\imgs\sh1u.jpg" alt="">
+            </div>
+            <div>
+              <form name="submit-to-google-sheet">
+                <input type="text" name="name" placeholder="enter your name" required>
+                <input type="email" name="email" placeholder="enter your email" required>
+                <input type="phone" name="phone" placeholder="enter your phone number" required>
+                <input type="message" name="message" placeholder="enter your message" required>
+                <button type="submit" class="subscribe-btn" > Get Quotation  </button>
+              </form>
+              <span id="msg"></span>
+            </div>
+          </div>
+
+          <div class="email-form">
+            <form name="submit-to-google-sheet">
+              <input type="email" id="email" name="email" placeholder="Enter your email" class="email-input">
+                <input type="submit" value="Subscribe" class="subscribe-btn" onclick="showPopup(event)" id="subscribe-btn">
+            </form>
+        </div>
+        
+        <div id="popup" class="popup-notice">
+            Subscribed!
+        </div>
+        
+        
+          <script>
+            /* Show popup notice */
+            function showPopup(event) {
+              event.preventDefault();
+              var popup = document.getElementById("popup");
+              popup.classList.add("show-popup");
+              setTimeout(function() {
+                popup.classList.remove("show-popup");
+              }, 3000);
+            }
+          </script>
+
+            <footer>
+              <div class="footer-bg" id="footer">
+                <div class="container">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <a href="#default" class="logo2"><img src="biznaSure Files\imgs\Minetlogo.png" alt=""></a>
+          
+                    </div>
+                    <div class="col-md-4"> 
+                      <h3>About Us </h3>
+                        <p> <a href=" https://www.minet.com/kenya/about-minet/" style="text-decoration: none; font-family: 'Titillium web' ;
+                        font-style: book; color: grey;">About Minet </a></p>
+                        </div>
+                    <div class="col-md-4">
+                      <h3>Product & Services </h3>
+                      <p>By solution
+                      <br> By Industry</p>
+                    </div>
+                    <div class="col-md-4"> 
+                      <h3>Media </h3>
+                        <p> <a href="https://www.minet.com/kenya/media/" style="text-decoration: none; font-family: 'Titillium web' ;
+                        font-style: book; color: grey;">News & Events </a></p>
+                        </div>
+                    <div class="col-md-4">
+                      <h3 class="smallscreen" >Contact</h3>
+                      <p  class="smallscreen" >Minet House <br> Processional Way(Off Nyerere Rd) <br> P.O.BOX 48279-00100 GPO <br>Nairobi, Kenya <br>T: +254 071 904 4000 E:Info@Minet.Co.Ke</p>
+                      <ul class="social-icons">
+                        <li><a href="https://www.facebook.com/MinetKenya"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://www.instagram.com/minet_ke/"><i class="fa fa-instagram"></i></a></li>
+                        <li><a href="https://twitter.com/Minet_Kenya?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="https://www.linkedin.com/company/minet-kenya-insurance-brokers-limited/"><i class="fa fa-linkedin"></i></a></li>
+                      </ul>
+            
+                      <script>
+                        var sidemenu = document.getElementById ("sidemenu");
+                        function openmenu(){
+                          sidemenu.style.left="0";
+                        }
+                        var sidemenu = document.getElementById ("sidemenu");
+                        function closemenu(){
+                          sidemenu.style.left="-250px";
+                        }
+                      </script>
+                      <script>
+                        const scriptURL = 'https://script.google.com/macros/s/AKfycbydqcQ4FQrT3_HuO0mIpcHEWLkcd8oC6y6GnmffT0cvjt0BBqjYj47hXzBnwClFktwv/exec'
+                        const form = document.forms['submit-to-google-sheet']
+                        const msg = document.getElementById("msg")
+                        form.addEventListener('submit', e => {
+                          e.preventDefault()
+                          fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                            .then(response => {
+                              msg.innerHTML = "Sent successful to BiznaSure SME's Solutions"
+                              setTimeout(function(){
+                                msg.innerHTML = ""
+                              },15000)   
+                              form.reset()
+                            })
+                            .catch(error => console.error('Error!', error.message))
+                        })
+                      </script>
+                      <script src="https://www.google.com/maps/search/minet+kenya/@-1.2864204,36.81425,15z/data=!3m1!4b1"></script>
+                      
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </footer>
+          </section>
+          <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+          <script src='https://cdnjs.cloudflare.com/ajax/libs/gsap/1.19.1/TweenMax.min.js'></script><script  src="./script.js"></script>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js" referrerpolicy="no-referrer"></script>
+          <script src="biznaSure Files/script.js"></script>
+          <script src="biznaSure Files/script2.js"></script>
+          <script src="biznaSure Files/script5.js"></script>
+            </div> <!-- END container -->
+          </div> <!-- END site-content -->
+          <div class="site-cache" id="site-cache"></div>
+        </div> <!-- END site-pusher -->
+      </div> <!-- END site-container -->
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js"></script>
+      <script>
+      SmoothScroll({
+      animationTime : 800,
+  
+      stepSize : 75,
+   
+      accelerationDelta : 30,
+      accelerationMax : 2,
+      
+      keyboardSupport : true,
+
+      arrowScroll : 50,
+      
+      pulseAlgorithm : true,
+      pulseScale : 4,
+      pulseNormalize : 1,
+      
+      touchpadSupport : true,
+      })
+
+      </script>
+<script src="biznaSure Files/script5.js"></script>
 </body>
 </html>

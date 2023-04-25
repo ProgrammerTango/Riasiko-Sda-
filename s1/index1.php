@@ -113,7 +113,7 @@ include 'entry.php';
   
     <div class="cd-content-wrapper">
       <div class="text-component text-center">
-        <h1></h1>
+        <h1>jhgyrr</h1>
         <p><a href=""> </a></p>
       </div>
       <img src="https://image.pitchbook.com/4FJQlHjnVgYvWIBE3U1DccJV2Xp1646814809578_200x200" alt="">

@@ -1,34 +1,41 @@
 <!DOCTYPE html>
-<html >
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Image Comparison Slider</title>
-  <script src="http://s.codepen.io/assets/libs/modernizr.js" type="text/javascript"></script>
-
-<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-
-<link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/reset.css">
-
-<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/jquery.mobile.custom.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-  
-      <link rel="stylesheet" href="style.scss">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+	<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-  <figure class="cd-image-container">
-	<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/148866/img-original.jpg" alt="Original Image">
-	<span class="cd-image-label" data-type="original">Original</span>
-
-	<div class="cd-resize-img"> <!-- the resizable image on top -->
-		<span class="cd-image-label" data-type="modified">Modified</span>
+	<div class="sidebar">
+		<button onclick="scrollToSection('section1')">Section 1</button>
+		<button onclick="scrollToSection('section2')">Section 2</button>
+		<button onclick="scrollToSection('section3')">Section 3</button>
+		<button onclick="scrollToSection('section4')">Section 4</button>
 	</div>
-
-	<span class="cd-handle"></span>
-</figure> <!-- cd-image-container -->
-  <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
-
-    <script src="script.js"></script>
-
+	
+	<div class="main-content">
+		<section id="section1">
+			<h2>Section 1</h2>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		</section>
+		
+		<section id="section2">
+			<h2>Section 2</h2>
+			<p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		</section>
+		
+		<section id="section3">
+			<h2>Section 3</h2>
+			<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+		</section>
+		
+		<section id="section4">
+			<h2>Section 4</h2>
+			<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+		</section>
+	</div>
+	<script src="script.js"></script>
 </body>
 </html>

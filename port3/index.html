@@ -27,38 +27,52 @@
         disabled>   
     <link rel="stylesheet" href="style-switcher.css">
      </head>
-<body class="dark">
+<body >
     <!--main-container start-->
     <div class="main-container">
 <!--aside start-->
-<div class="aside">
+<div class="aside" id="sidemenu">
     <div class="logo">
         <a href="#"><span>D</span>IC<span>K</span>SON</a>
     </div>
     <div class="nav-toggler">
         <span></span>
     </div>
-    <ul class="nav">
+    <ul class="nav" >
         <li><a href="#home"class="active" ><i class="fa fa-home"></i>Home</a></li>
         <li><a href="#about"><i class="fa fa-user"></i>About</a></li>
         <li><a href="#services"><i class="fa fa-list"></i>Services</a></li>
         <li><a href="#portfolio"><i class="fa fa-briefcase"></i>Portfolio</a></li>
         <li><a href="#contact"><i class="fa fa-comments"></i>Contact</a></li>
+        <i id="close" class="fa fa-times" onclick="closemenu()"></i>
     </ul>
 </div>
 <!--aside end-->
 <!--main-content-start-->
 <div class="main-content">
 <!--home-section-start-->
-<section class="home section " id="home">
-    
+<section class="home section" id="home">
+    <i id="close1" class="fa fa-solid fa-bars" onclick="openmenu()"></i>
     <div class="container">
+        <marquee behavior="" direction="right">Dickson Tangaso Portfolio</marquee>
         <div class="row">
             <div class="home-info padd-15">
                 <h3 class="hello">Hi, my name is <span> <div class="name">Dickson Nyambane</div> </span></h3>
                 <h3 class="my-profession">l'm a <span class="typing">Software developer</span></h3>
-                <p>I'm a Software developer with more than 3 years of hands-on extensive experience in positions of high responsibility as a developer. Am passionate about designing beautiful web interfaces.</p>
-                <a href="#contact" class="btn hire me">Hire me </a>
+    <div id="readmore">
+        <span class="readmore__content">
+            Welcome to my portfolio! My name is Dickson Nyambane, and I am a dedicated web developer with over three years of experience in PHP, HTML, and CSS. My passion for web development began during my college days, and I have since worked tirelessly to refine my skills and knowledge.
+            As a developer, I have a deep understanding of PHP, HTML, and CSS, and I am proficient in building responsive, user-friendly websites. I am also well-versed in various frameworks such as Laravel, CodeIgniter, and Bootstrap.
+            I have worked with clients from various industries and developed custom web solutions tailored to their specific needs. I have created e-commerce websites, company websites, and personal blogs, to mention a few. My goal is to help clients achieve their online goals by providing innovative and efficient web solutions.
+            As a web developer, I am always eager to learn and keep up-to-date with the latest web development trends and technologies. I am confident in my ability to tackle any web development project, and I strive to deliver high-quality work that meets and exceeds client expectations.
+            Thank you for taking the time to visit my portfolio. I am excited to discuss your next project and help bring your ideas to life.
+        </span>
+        <button class="readmore__toggle" role="switch" aria-checked="true">
+            Show more
+        </button>
+        </button>
+    </div>
+    <a href="#contact" class="btn hire me">Hire me </a>
             </div>
             <div class="home-img padd-15">
                 <img src="imgs/ds.jpg" alt="">
@@ -110,7 +124,8 @@
                         </div>
                         <div class="row">   
                             <div class="buttons padd-15">
-                                <a href="imgs/DICKSON CV APRIL 2023.pdf" class="btn">Download CV</a>
+                                <a href="imgs/DICKSON CV APRIL 2023.pdf"Download class="btn">Download CV</a>
+                                <a href="imgs/DICKSON CV APRIL 2023.pdf" class="btn">View CV</a>
                                 <a href="#contact" class="btn hire-me">Hire me</a>
                             </div>
                         </div>
@@ -411,42 +426,19 @@
             <h3 class="contact-title padd-15">Send me an email</h3>
             <h4 class="contact-sub-title padd-15">Am very responsive to messages</h4>
             <!--contact form-->
-            <div class="row">
-                <div class="contact-form padd-15">
-                    <div class="row">
-                        <div class="form-item col-6 padd-15">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Name">
-                            </div>
-                        </div> 
-                        <div class="form-item col-6 padd-15">
-                            <div class="form-group">
-                                <input type="email" class="form-control" placeholder="Email">
-                            </div>
-                        </div>
-                   
-                    </div>
-                    <div class="row">
-                        <div class="form-item col-12 padd-15">
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Subject">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-item col-12 padd-15">
-                            <div class="form-group">
-                                <textarea name="" class="form-control" id="" Placeholder="Message"></textarea>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="form-item col-12 padd-15">
-                            <button type="submit" class="btn">Send message</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+              <form name="submit-to-google-sheet">
+                <input type="text"  class="form-item col-6"  name="name"  placeholder="enter your name" required>
+                <input type="email" class="form-item col-6" name="email" placeholder="enter your email" required>
+                <input type="phone" class="form-item col-6" name="phone" placeholder="enter your phone number" required>
+                <input type="message" class="form-item col-12" name="message" placeholder="enter your message" required>
+                <button type="submit" class="btn" >Submit</button>
+                <span id="msg"></span>
+
+              </form>
+        </div>
+        <div class="copyright">
+
+            <p>copyright © developed with <i class="fa fa-heartbeat"></i> by Dickson Nyambane </p>
         </div>
     </section>
 <!--contact section end-->
@@ -463,7 +455,6 @@
     <div class="day-night s-icon">
         <i class="fa fa-moon-o"></i>
     </div>
-  
     <h4>theme colors</h4>
     <div class="colors">
         <span class="color-1" onclick="setActiveStyle('color-1')"></span>
@@ -477,7 +468,35 @@
 
 <!--Js files-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js" referrerpolicy="no-referrer"></script>
+<script>
+    var sidemenu = document.getElementById ("sidemenu");
+    function openmenu(){
+      sidemenu.style.left="0";
+    }
+    var sidemenu = document.getElementById ("sidemenu");
+    function closemenu(){
+      sidemenu.style.left="-250px";
+    }
+  </script>
+            <script>
+                const scriptURL = 'https://script.google.com/macros/s/AKfycbzCwOXV-Rt14VhidCKNd-2qV7zqCvVqpSh-AQJWeamX-_tV3i-ee726PDOEPTfjKe-c/exec'
+                const form = document.forms['submit-to-google-sheet']
+                const msg = document.getElementById("msg")
+                form.addEventListener('submit', e => {
+                  e.preventDefault()
+                  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                    .then(response => {
+                      msg.innerHTML = "Message sent successful to Dickson Tangaso"
+                      setTimeout(function(){
+                        msg.innerHTML = ""
+                      },5000)   
+                      form.reset()
+                    })
+                    .catch(error => console.error('Error!', error.message))
+                })
+              </script>
 <script src="script.js"></script>
 <script src="style-switcher.js"></script>
+<script src="script2.js"></script>
 </body>
 </html>

@@ -1,0 +1,244 @@
+
+*,
+*:before,
+*:after{
+padding: 0;
+margin: 0;
+box-sizing: border-box;
+}
+body{
+background-color: #d05959;
+}
+.background{
+width: 430px;
+height: 520px;
+position: absolute;
+transform: translate(-50%,-50%);
+left: 50%;
+top: 50%;
+}
+.background .shape{
+height: 200px;
+width: 200px;
+position: absolute;
+border-radius: 50%;
+}
+.shape:first-child{
+background: linear-gradient(
+  #1845ad,
+  #23a2f6
+);
+left: -80px;
+top: -80px;
+}
+.shape:last-child{
+background: linear-gradient(
+  to right,
+  #ff512f,
+  #f09819
+);
+right: -30px;
+bottom: -80px;
+}
+form{
+height: 920px;
+width: 600px;
+margin-top: 100px;
+background-color: rgba(255,255,255,0.13);
+position: absolute;
+transform: translate(-50%,-50%);
+top: 50%;
+left: 50%;
+border-radius: 10px;
+backdrop-filter: blur(10px);
+border: 2px solid rgba(221, 2, 2, 0.1);
+box-shadow: 0 0 40px rgba(219, 5, 5, 0.6);
+padding: 50px 35px;
+}
+.form-control{
+width:40em;
+height: 5em;
+}
+form *{
+font-family: 'Poppins',sans-serif;
+color: #ffffff;
+letter-spacing: 0.5px;
+outline: none;
+border: none;
+}
+form h3{
+font-size: 32px;
+font-weight: 500;
+line-height: 42px;
+text-align: center;
+}
+.submitBtn{
+width:10em;
+height:4em; 
+margin:0;
+background-color: #0a0a0a;
+}
+label{
+display: block;
+margin-top: 30px;
+font-size: 16px;
+font-weight: 500;
+}
+input{
+display: block;
+height: 50px;
+width: 100%;
+background-color: rgba(255,255,255,0.07);
+border-radius: 3px;
+padding: 0 10px;
+margin-top: 8px;
+font-size: 14px;
+font-weight: 300;
+}
+::placeholder{
+color: #0a0a0a;
+}
+button{
+margin-top: 50px;
+width: 100%;
+background-color: #ffffff;
+color: #080710;
+padding: 15px 0;
+font-size: 18px;
+font-weight: 600;
+border-radius: 5px;
+cursor: pointer;
+}
+.social{
+margin-top: 30px;
+display: flex;
+}
+.social div{
+background: red;
+width: 150px;
+border-radius: 3px;
+padding: 5px 10px 10px 5px;
+background-color: rgba(255,255,255,0.27);
+color: #eaf0fb;
+text-align: center;
+}
+.social div:hover{
+background-color: rgba(255,255,255,0.47);
+}
+.social .fb{
+margin-left: 25px;
+}
+.social i{
+margin-right: 4px;
+}
+
+
+
+
+@media (max-width:1199px){
+    form{
+        width: 100%;
+        font-size: xx-large;
+        background-size: cover;
+        margin-top: 10%;
+                }
+                form *{
+                    font-size: xx-large;
+                    font-family: 'Poppins',sans-serif;
+                    color: #ffffff;
+                    letter-spacing: 0.5px;
+                    outline: none;
+                    border: none;
+                    }
+  }
+  @media (max-width:991px)
+  {
+    form{
+        margin-left: 100px;
+        width: 100%;
+        font-size: xx-large;
+        background-size: cover;
+        margin-top: -25%;
+                }
+                form *{
+                    font-size: 60px;
+                    font-family: 'Poppins',sans-serif;
+                    color: #c80505;
+                    letter-spacing: 0.5px;
+                    outline: none;
+                    border: none;
+                    }
+                    .form-control{
+                        width:50em;
+                        height: 4em;
+                        }
+  }
+  
+  @media(max-width:767px){
+ 
+    form{
+        width: 100%;
+        font-size: xx-large;
+        background-size: cover;
+        margin-top: 10%;
+                }
+                form *{
+                    font-size: xx-large;
+                    font-family: 'Poppins',sans-serif;
+                    color: #ffffff;
+                    letter-spacing: 0.5px;
+                    outline: none;
+                    border: none;
+                    }
+  }
+
+
+/*@media (max-width:1199px){
+    .aside{
+      left: -270px;
+    }
+    .hidden{
+      display: none !important;
+    }
+    .main-content{
+      padding-left: 0;
+    }
+    .about .about-content .personal-info .info-items p span{
+      display: block;
+      margin-left: 0;
+    }
+  }
+  @media (max-width:991px)
+  {
+    .contact .contact-info-item,
+    .portfolio .portfolio-item,
+    .service .service-item{
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+    .home .home-info{
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    .home .home-img{
+      display: none;
+    }
+  }
+  
+  @media(max-width:767px){
+    .contact .contact-form .col-6,
+    .contact .contact-info-item,
+    .portfolio .portfolio-item,
+    .service .service-item,
+    .about .about-content .experience,
+    .about .about-content .education,
+    .about .about-content .skills,
+    .about .about-content .personal-info{
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    form{
+background-size: cover;
+        }
+  }
+  */

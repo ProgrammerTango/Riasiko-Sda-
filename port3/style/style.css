@@ -11,7 +11,7 @@
   body.dark{
     --bg-black-900: #151515;
     --bg-black-100: #222222;
-    --bg-black-50:#393939;
+    --bg-black-50:#f4f4f4;
     --text-black-900:#ffffff;
     --text-black-700:#e9e9e9;
   }
@@ -102,6 +102,7 @@
     position: relative;
   }
   .btn{
+    margin-top: 30px;
     font-size: 16px;
     font-weight: 500;
     padding: 12px 35px;
@@ -150,8 +151,6 @@
   }
   .aside .logo a span{
     font-family: 'clicker script', cursive;
-    font-size: 40px;
-
   }
   
   .aside .logo a::before{
@@ -252,6 +251,12 @@
     font-family: 'clicker script', cursive;
     font-size: 30px;
     font-weight: 700;
+    color: var(--skin-color);
+  }
+  #msg{
+    margin-left: 5%;
+    font-style: italic;
+    font-weight: bolder;
     color: var(--skin-color);
   }
   h3.my-profession{
@@ -547,12 +552,23 @@
 
     }
     /*contact*/
+    
+    form input, form textarea{
+      width: 100%;
+      border: 0;
+      outline: line;
+      padding: 15px;
+      margin: 15px 0;
+      font-size: 15px;
+      border-radius: 60px ;
+      text-transform: capitalize;
+    }
     .contact-title{
       color: var(--skin-color);
       text-align: center;
       font-size: 25px;
       margin-bottom: 20px;
-      }
+    }
       .contact-sub-title{
         color: var(--text-black-900);
         text-align: center;
@@ -586,45 +602,61 @@
           color: var(--text-black-700);
           font-weight: 400;
         }
-    .contact .contact-form{
-      flex: 0 0 100%;
-      max-width: 100%;
-    }
-    .contact .contact-form .col-6{
+    .col-6{
       flex: 0 0 50%;
-      max-width: 50%;
+      max-width: 49%;
     }
-    .contact .contact-form .col-12{
-      flex: 0 0 100%;
-      max-width: 100%;
-    }
-    .contact .contact-form .form-item{
-      margin-bottom: 30px;
-    }
-    .contact .contact-form .form-item .form-control{
-      width: 100%;
-      height: 50px;
-      border-radius: 25px;
-      background: var(--bg-black-100);
-      border: 1px solid var(--bg-black-50);
-      padding: 10px 25px ;
-      font-size: 16px;
-      color: var(--text-black-700);
-      transition: all 0.3s ease;
-    }
-    .contact .contact-form .form-item .form-control :focus{
-      box-shadow: 0 0 20px rgba(48, 46, 77, 0.15);
-     }
-    .contact .contact-form .form-item textarea.form-control{
-      height: 140px;
+    .col-12{
+      height: 9vh;
     }
     .contact .contact-form .btn{
       height: 50px;
       padding: 0 50px;
     }
+    .copyright{
+      width: 100%;
+      text-align: center;
+      padding: 25px 0;
+      background-color:var(--skin-color);
+      font-weight: 300;
+      margin-top: 20px;
+      color: var(--bg-black-100);
+      text-transform: capitalize;
+    }
+    .copyright i{
+      color: red;
+    }
+    .aside #close, #close1{
+      display: none;
+    }
 @media (max-width:1199px){
-  .aside{
-    left: -270px;
+
+  .aside {
+    background-color: var(--skin-color);
+    position: fixed;
+    top: 0;
+    display: block;
+    left: -250px;
+    width: 250px;
+    height: 100vh;
+    padding-top: 50px;
+    z-index: 2;
+    transition: 0.5s;
+  }
+  .aside .nav #close{
+    position: absolute;
+    left: 235px;
+    top: 1px;
+    cursor: pointer;
+    display: block;
+  }
+  #home #close1{
+    position: absolute;
+    left: 40px;
+    top: 30px;
+    cursor: pointer;
+    color: var(--skin-color);
+    display: block;
   }
   .hidden{
     display: none !important;
@@ -652,6 +684,7 @@
   .home .home-img{
     display: none;
   }
+
 }
 
 @media(max-width:767px){
